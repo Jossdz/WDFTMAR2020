@@ -1,0 +1,43 @@
+/* CSS */
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* position
+  static
+  relative
+  absolute
+  fixed
+  sticky
+*/
+
+img {
+  width: 200px;
+  position: relative;
+  left: calc(50% - 100px);
+}
+
+.about {
+  background: red;
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.fun {
+  background: yellow;
+  position: relative;
+}
+
+.contact {
+  background: cyan;
+  position: relative;
+}
+
+#sub1 {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
