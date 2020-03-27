@@ -30,6 +30,16 @@ class Pokemon {
   // }
 }
 
+function damage(enemyPokemon, pokemon, double){
+    if(double){
+        const totalDamage = enemyPokemon.attack - pokemon.defense
+    pokemon.hp -= totalDamage * 2
+    }else{
+        const totalDamage = enemyPokemon.attack - pokemon.defense
+    pokemon.hp -= totalDamage
+    }
+}
+
 class PokemonOfType extends Pokemon {
   constructor(name, shiny, hp, attack, defense, type){
     super(name, shiny, hp, attack, defense)
@@ -39,19 +49,16 @@ class PokemonOfType extends Pokemon {
     switch(enemyPokemon.type){
       case 'WATER':
         if(this.type === FIRE){
-        const totalDamage = enemyPokemon.attack - this.defense
-        this.hp -= totalDamage * 2
+        damage(enemyPokemon, this, true)
       }
         break
       case FIRE:
           if(this.type === 'WATER'){
-            const totalDamage = enemyPokemon.attack - this.defense
-            this.hp -= totalDamage * 2
+            damage(enemyPokemon, this, true)
           }
         break
       default:
-        const totalDamage = enemyPokemon.attack - this.defense
-        this.hp -= totalDamage
+        damage(enemyPokemon, this, false)
         break
     }
   }
