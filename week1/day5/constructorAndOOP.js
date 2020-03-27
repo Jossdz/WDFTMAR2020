@@ -77,7 +77,8 @@ class Smartphone {
       // argumento a pasar a la clase padre (en este caso a SmartPhone)
       super(color, 3)
       this.so = so
-      this.isOn = true
+
+      delete this.isOn
     }
     stop(){
       console.log('mira we me apague')
@@ -87,8 +88,5 @@ class Smartphone {
   
   const regularPhone = new Smartphone('blue', 5.2)
   const diegoPhone = new ApplePhone('black', 'ubuntu')
-  
-  diegoPhone.stop()
-  regularPhone.stop()
-  
+ 
   console.log(regularPhone, diegoPhone)
