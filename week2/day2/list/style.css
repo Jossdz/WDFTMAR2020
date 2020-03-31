@@ -1,0 +1,71 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+img {
+  width: 150px;
+}
+.done {
+  text-decoration: line-through;
+}
+
+h1 {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellowgreen;
+  margin: 0;
+  color: whitesmoke;
+}
+
+input {
+  width: 69%;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+body > button {
+  width: 30%;
+  height: 100px;
+  box-sizing: border-box;
+}
+main {
+  width: 100%;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
+}
+li {
+  list-style: none;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+
+li button {
+  height: 100%;
+}
+
+li > button:nth-child(1) {
+  background-color: red;
+  border: none;
+  flex: 1;
+}
+li > button:nth-child(2) {
+  background-color: yellow;
+  border: none;
+  flex: 1;
+}
