@@ -1,0 +1,20 @@
+{
+  "name": "myfirstproject",
+  "version": "1.0.0",
+  "description": "Aprendiendo npm y como usar los paquetes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "nodejs"
+  ],
+  "author": "@jossdz",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0"
+  }
+}
