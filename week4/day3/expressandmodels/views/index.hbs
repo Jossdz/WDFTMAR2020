@@ -1,0 +1,11 @@
+<h1>Armas del apocalipsis por covid</h1>
+<ul>
+    {{#each weapons}}
+    <li>{{owner}} se va a defender con {{name}}
+        {{#if isDangerous}}
+        y es peligroso
+        {{else}}
+        y es inofensivo
+        {{/if}}</li>
+    {{/each}}
+</ul>
