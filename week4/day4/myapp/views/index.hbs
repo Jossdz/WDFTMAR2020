@@ -1,0 +1,11 @@
+<h1>Countries with COVID</h1>
+
+{{#each countries}}
+<a href="/country/{{this._id}}">{{this.name}}</a>
+{{/each}}
+
+<a href="/create">
+  <button>
+    Register new country
+  </button>
+</a>

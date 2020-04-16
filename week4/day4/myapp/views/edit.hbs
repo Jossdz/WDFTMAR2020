@@ -1,0 +1,10 @@
+<section class="create_form">
+  <h2>Edit country</h2>
+  <form action="/edit/{{_id}}" method="POST">
+    <input name="name" type="text" placeholder="Country" value="{{name}}">
+    <input name="confirmed" type="number" placeholder="Confirmed cases" value="{{confirmed}}">
+    <input name="recovered" type="number" placeholder="Recovered cases" value="{{recovered}}">
+    <input name="deaths" type="number" placeholder="Deaths" value="{{deaths}}">
+    <input type="submit" value="Edit Country">
+  </form>
+</section>
