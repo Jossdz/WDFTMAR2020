@@ -9,9 +9,27 @@ const {
 router.get("/", (req, res) => {
   res.render("index");
 });
-const { signupView, signupProcess } = require("../controllers/auth");
+const {
+  signupView,
+  signupProcess,
+  loginView,
+  loginProcess,
+  logout,
+} = require("../controllers/auth");
 
-// ------------------------------------------------------------
+const { profile } = require("../controllers/profile");
+
+// -----------------------Middleware------------------------------------
+
+function checkSession(req, res, next) {
+  if (req.session.currentUser) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
+//----------------------------------------------------------------------
 
 //Movie
 
@@ -24,5 +42,12 @@ router.get("/movie/:id", detailView);
 
 router.get("/signup", signupView);
 router.post("/signup", signupProcess);
+router.get("/login", loginView);
+router.post("/login", loginProcess);
+router.get("/logout", logout);
+
+// Profile
+
+router.get("/profile", checkSession, profile);
 
 module.exports = router;
