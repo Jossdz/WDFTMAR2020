@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+
+{{#if error}}
+<h2 style="color: red;">{{error}}</h2>
+{{/if}}
+
+
+<form action="{{action}}" method="POST">
+  {{#if loading}}
+  <p>Loading...</p>
+  {{/if}}
+  {{#if signup}}
+  <input type="text" name="name" placeholder="Kanye West" />
+  {{/if}}
+  <input type="email" name="email" placeholder="kanye@west.com">
+  <input type="password" name="password">
+  {{#if signup}}
+  <input type="password" name="verify">
+  {{/if}}
+  <input type="submit" value="{{button}}">
+</form>
