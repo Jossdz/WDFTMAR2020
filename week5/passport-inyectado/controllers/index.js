@@ -25,7 +25,7 @@ exports.signupPost = (req, res) => {
   if (password !== verify) {
     return res.render('form', config)
   } else {
-    User.register({ name, email }, password)
+    User.register({ name, email, role: 'ADMIN' }, password)
       .then(() => res.redirect('/login'))
       .catch((err) => {
         config.error = err.message
@@ -49,9 +49,24 @@ exports.loginPost = passport.authenticate('local', {
   failureRedirect: '/login',
 })
 
+exports.loginFacebook = passport.authenticate('facebook', { scope: ['email'] })
+
+exports.loginFacebookCb = passport.authenticate('facebook', {
+  successRedirect: '/profile',
+  failureRedirect: '/login',
+  scope: ['email'],
+})
+
 exports.profileGet = (req, res) => {
   const { user } = req
+  user.role === 'ADMIN' ? (user['admin'] = true) : (user['admin'] = false)
   res.render('profile', user)
+}
+
+exports.adminGet = async (req, res) => {
+  const { _id } = req.user
+  const users = await User.find({ _id: { $ne: _id } })
+  res.render('admin', { users })
 }
 
 exports.logout = (req, res) => {

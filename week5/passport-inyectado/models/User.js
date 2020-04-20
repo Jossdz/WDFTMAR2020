@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema(
       default:
         'https://cdn3.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumb900.jpg',
     },
+    facebookId: String,
+    role: {
+      type: String,
+      enum: ['USER', 'ADMIN'],
+      default: 'USER',
+    },
   },
   {
     versionKey: false,

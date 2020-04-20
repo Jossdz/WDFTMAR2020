@@ -11,15 +11,15 @@ const path = require('path')
 const passport = require('./config/passport')
 const session = require('express-session')
 
-mongoose.Promise = Promise
 mongoose
-  .connect('mongodb://localhost/passport-chocheado', {
-    useMongoClient: true,
+  .connect('mongodb://localhost/passport-inyectado', {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     useCreateIndex: true,
+    useUnifiedTopology: true,
   })
-  .then(() => console.log('Connected to Mongo!'))
+  .then((x) =>
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  )
   .catch((err) => console.error('Error connecting to mongo', err))
 
 const app_name = require('./package.json').name

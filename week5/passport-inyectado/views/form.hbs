@@ -6,9 +6,6 @@
 
 
 <form action="{{action}}" method="POST">
-  {{#if loading}}
-  <p>Loading...</p>
-  {{/if}}
   {{#if signup}}
   <input type="text" name="name" placeholder="Kanye West" />
   {{/if}}
@@ -19,3 +16,7 @@
   {{/if}}
   <input type="submit" value="{{button}}">
 </form>
+
+{{#if signup}}
+<a href="/auth/facebook">Login with Facebook</a>
+{{/if}}
