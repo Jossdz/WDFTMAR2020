@@ -1,0 +1,14 @@
+<h1>Add Place</h1>
+
+<div id="map"></div>
+
+<form action="/place/add" method="post">
+  <input type="text" name="name" id="name" placeholder="name"><br>
+  <input type="text" name="description" id="description" placeholder="description"><br>
+  <button type="submit" id="submit" disabled>Add place</button>
+  {{!-- Procuren poner los inputs ocultos despues del boton de submit y que no sean de tipo numero --}}
+  <input type="text" name="longitude" id="longitude" hidden>
+  <input type="text" name="latitude" id="latitude" hidden>
+</form>
+
+<script src="/javascripts/addMapScript.js"></script>
