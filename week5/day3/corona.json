@@ -1,0 +1,46 @@
+{
+  "countries": [
+    {
+      "id": 2,
+      "name": "USA",
+      "confirmed": 50,
+      "recovered": 10,
+      "deaths": 40
+    },
+    {
+      "id": 3,
+      "name": "China",
+      "confirmed": 100,
+      "recovered": 80,
+      "deaths": 20
+    },
+    {
+      "id": 4,
+      "name": "Korea",
+      "confirmed": 20,
+      "recovered": 10,
+      "deaths": 10
+    },
+    {
+      "id": 5,
+      "name": "Japan",
+      "confirmed": 20,
+      "recovered": 10,
+      "deaths": 10
+    },
+    {
+      "id": 1,
+      "name": "Mexico",
+      "confirmed": 9501,
+      "recovered": 2627,
+      "deaths": 857
+    },
+    {
+      "id": "7",
+      "name": "Germany",
+      "confirmed": "3000",
+      "recovered": "1200",
+      "deaths": "700"
+    }
+  ]
+}
