@@ -1,0 +1,70 @@
+<div style="padding-top: 10vh;" class="card">
+  <div style="display: flex;">
+    <img src="{{question.userId.photoURL}}" style="width: 100px;" class="card-img-top" alt="{{question.userId.name}}">
+    <div class="yoyo">
+      <h3 class="card-title">{{question.title}}</h3>
+      <p>{{question.userId.name}}</p>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      {{question.body}}
+    </p>
+  </div>
+</div>
+
+{{#each question.answers as |answer|}}
+<div class="alert alert-warning" role="alert">
+  <h5>{{answer.body}}</h5>
+  {{#ifCond ../loggedUser answer.userId._id}}
+  <p>Me</p>
+  {{else}}
+  <p>{{answer.userId.name}}</p>
+  {{/ifCond}}
+  {{#ifCond ../loggedUser answer.userId._id}}
+  <!-- Button trigger modal -->
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{split answer.body}}">
+    Edit
+  </button>
+  <a href="/questions/answer/delete/{{answer._id}}" class="btn text-white btn-danger">Delete</a>
+  {{/ifCond}}
+</div>
+<!-- Modal -->
+<div class="modal fade" id="{{split answer.body}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit answer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/questions/answer/update/{{../question._id}}/{{answer._id}}" method="POST">
+          <div class="form-group">
+            <label for="textarea-body">Answer</label>
+            <textarea name="body" class="form-control" id="textarea-body" rows="3">{{answer.body}}</textarea>
+          </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+{{#if isLoggedIn}}
+<form action="/questions/answer/create/{{question._id}}" method="POST">
+  <div class="form-group">
+    <label for="textarea-body">Answer</label>
+    <textarea name="body" class="form-control" id="textarea-body" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Answer</button>
+  </div>
+</form>
+{{/if}}

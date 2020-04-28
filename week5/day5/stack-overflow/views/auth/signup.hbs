@@ -1,0 +1,20 @@
+<form style="padding-top: 10vh;" action="/signup" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" type="text" class="form-control" id="name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input name="password" type="password" class="form-control" id="password">
+  </div>
+  <div class="form-group">
+    <label for="verify">Verify Password</label>
+    <input name="verify" type="password" class="form-control" id="verify">
+  </div>
+  <button type="submit" class="btn btn-primary">Create account</button>
+</form>

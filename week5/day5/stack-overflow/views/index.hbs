@@ -1,0 +1,34 @@
+<section class="pt-5 min-vh-100 container-fluid d-flex flex-column bg-light">
+
+  <h1 class="text-center m-5">Welcome to {{title}}</h1>
+
+  <div class="container-fluid d-flex justify-content-around flex-wrap">
+    {{#each questions as |question|}}
+    <div class="card" style="width: 40rem;">
+      <h5 class="card-header">{{question.title}}</h5>
+      <div class="card-body">
+        {{#each question.tags}}
+        <a href="/?tag={{this}}" class="badge badge-dark  my-tag">{{this}}</a>
+        {{/each}}
+        <br>
+        <br>
+        <a href="/questions/{{question._id}}" class="btn btn-warning">View question</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <br>
+  <br>
+
+  {{#if filter}}
+  <a class="btn btn-info" href="/">Clean filter</a>
+  {{/if}}
+
+  <br>
+  <br>
+
+  <a style="width: 50%;" class="btn btn-primary" href="/profile">
+    Ask a question
+  </a>
+</section>
