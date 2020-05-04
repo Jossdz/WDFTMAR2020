@@ -1,0 +1,10 @@
+<h2>Create Post</h2>
+{{!-- Tenemos que habilitar el enctype con multipart para poder enviar imagenes y texto --}}
+<form action="/post/add" method="post" enctype="multipart/form-data">
+  <label for="title">Title</label><br>
+  <input type="text" name="title" id="title"><br>
+  <label for="body">Body</label><br>
+  <textarea name="body" id="body" cols="20" rows="10"></textarea><br>
+  <input type="file" name="photo" id="photo"><br>
+  <input type="submit" value="create post">
+</form>

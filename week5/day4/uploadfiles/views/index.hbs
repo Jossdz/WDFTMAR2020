@@ -1,0 +1,19 @@
+<a href="/post/add"><button type="button" class="btn btn-primary btn-lg btn-block">Agregar momazo</button></a>
+<br>
+<div class="row">
+
+  {{#each posts}}
+  <div class="col-sm-12 col-md-6">
+    <div class="card" style="width: 18rem;">
+      <img src={{imgPath}} class="card-img-top" alt="{{imgName}}">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{body}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        creado por @{{owner.name}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

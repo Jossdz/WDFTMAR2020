@@ -1,0 +1,21 @@
+<h2>Login</h2>
+
+<form action="/login" method="POST" id="form-container">
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="you@mail.com" />
+  <br /><br />
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password" />
+
+  {{#if message}}
+  <div class="bg-danger text-light">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+  <button>Login</button>
+
+  <p class="account-message">
+    or register
+    <a href="/signup">Signup</a>
+  </p>
+</form>
