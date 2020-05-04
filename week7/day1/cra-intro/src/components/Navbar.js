@@ -2,10 +2,22 @@ import React, { Component } from "react";
 import LinkButton from "./LinkButton";
 
 class Navbar extends Component {
+  state = {
+    theme: false,
+  };
+
+  switchTheme = () => {
+    this.setState({
+      theme: !this.state.theme,
+    });
+  };
+
   render() {
     return (
       <nav
-        className={`navbar navbar-expand-lg navbar-${this.props.theme} bg-${this.props.theme}`}
+        className={`navbar navbar-expand-lg navbar-${
+          this.state.theme ? "light" : "dark"
+        } bg-${this.state.theme ? "light" : "dark"}`}
       >
         <a className="navbar-brand" href="#">
           {this.props.title}
@@ -61,6 +73,9 @@ class Navbar extends Component {
             </li>
           </ul>
         </div>
+        <button className="btn btn-primary" onClick={this.switchTheme}>
+          Toggle theme
+        </button>
       </nav>
     );
   }

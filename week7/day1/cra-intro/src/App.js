@@ -1,23 +1,18 @@
 import React from "react";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
-
-class ComponentClass extends React.Component {
-  render() {
-    return (
-      <div>
-        <b>Hola desde el componente de clase</b>
-        <br />
-      </div>
-    );
-  }
-}
+import User from "./components/User";
+import TextShow from "./components/TextShow";
 
 const App = () => (
   <div className="App App-header">
     <Navbar theme="dark" title="Ironhack Mex" />
     <h1>Componente funcional</h1>
     <p>Hola desde un componente funcional</p>
+    <User name="Kevin" />
+    <TextShow />
+    <TextShow />
+    <TextShow />
     <Card
       title="Donovan"
       description="Crossfitero"
