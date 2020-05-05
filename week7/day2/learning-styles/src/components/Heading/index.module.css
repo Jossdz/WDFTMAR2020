@@ -1,0 +1,10 @@
+.title {
+  color: red;
+  font-size: 2rem;
+}
+
+.container {
+  width: 300px;
+  height: 250px;
+  background: blue;
+}
