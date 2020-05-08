@@ -1,22 +1,42 @@
 import React, { createContext, Component } from "react";
-
+import { logout, currentUser } from "../services/auth";
 export const MyContext = createContext();
 
 export class ContextProvider extends Component {
   state = {
-    name: "joss",
-    age: 24,
-    hobbies: ["play guitar"],
+    user: {
+      username: "",
+      id: "",
+    },
   };
-  changeName = (name) => {
+  // En el monmento en que la app se monta por primera vez, nosotros preguntamos si hay una sesion en el server, si es asi el user tendra data, si no llega vacio
+  componentDidMount = async () => {
+    const {
+      data: { user },
+    } = await currentUser();
+    if (user) {
+      this.setUser({ user });
+    }
+  };
+  // guardar al user
+  setUser = (user) => {
+    this.setState(user);
+  };
+  //quitar al user
+  removeUser = async () => {
+    await logout();
     this.setState({
-      name,
+      user: {
+        username: "",
+        id: "",
+      },
     });
   };
+
   render() {
-    const { changeName } = this;
+    const { setUser, removeUser } = this;
     return (
-      <MyContext.Provider value={{ ...this.state, changeName }}>
+      <MyContext.Provider value={{ ...this.state, setUser, removeUser }}>
         {this.props.children}
       </MyContext.Provider>
     );
