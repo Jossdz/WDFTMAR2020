@@ -5,7 +5,10 @@ import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-const Home = () => <h1>Home</h1>;
+import Home from "./pages/Home";
+import CreateProject from "./pages/CreateProject";
+import ProjectDetail from "./pages/ProjectDetail";
+
 const Profile = () => <h1>Profile</h1>;
 
 const AppRouter = () => (
@@ -17,6 +20,8 @@ const AppRouter = () => (
       <Route exact component={Signup} path="/signup" />
       <PrivateRoute exact component={Secret} path="/secret" />
       <PrivateRoute exact component={Profile} path="/profile" />
+      <PrivateRoute exact component={CreateProject} path="/projects/new" />
+      <Route exact component={ProjectDetail} path="/projects/:id" />
     </Switch>
   </Router>
 );

@@ -20,10 +20,16 @@ function Navbar() {
             <ul>
               <li>User: {username}</li>
               <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
                 <Link to="/secret">Secret</Link>
               </li>
               <li>
                 <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/projects/new">New project</Link>
               </li>
               <li>
                 <button onClick={removeUser}>Logout</button>

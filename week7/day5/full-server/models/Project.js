@@ -5,7 +5,6 @@ const projectSchema = new Schema(
     name: String,
     description: String,
     imgURL: String,
-    imgName: String,
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",

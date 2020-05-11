@@ -7,15 +7,15 @@ const authService = axios.create({
   withCredentials: true,
 });
 
-export const signup = async (userData) => {
+export const signup = (userData) => {
   return authService.post("/signup", userData);
 };
-export const login = async (userData) => {
+export const login = (userData) => {
   return authService.post("/login", userData);
 };
-export const logout = async () => {
+export const logout = () => {
   return authService.get("/logout");
 };
-export const currentUser = async () => {
+export const currentUser = () => {
   return authService.get("/currentUser");
 };

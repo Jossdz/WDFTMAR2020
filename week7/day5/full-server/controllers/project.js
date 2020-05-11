@@ -2,12 +2,12 @@
 const Project = require("../models/Project");
 
 exports.getAllProjects = async (req, res) => {
-  const projects = await Project.find();
+  const projects = await Project.find().populate("owner");
   res.status("200").json({ projects });
 };
 exports.getProject = async (req, res) => {
   const { id } = req.params;
-  const project = await Project.findById(id);
+  const project = await Project.findById(id).populate("owner");
   res.status("200").json({ project });
 };
 exports.updateProject = async (req, res) => {
@@ -27,19 +27,19 @@ exports.updateProject = async (req, res) => {
 };
 exports.createProject = async (req, res) => {
   // Por que no de req.file ?????????
-  const { name, description, imgURL, imgName } = req.body;
+  const { name, description, imgURL } = req.body;
   const owner = req.user.id;
 
   const project = await Project.create({
     name,
     description,
     owner,
-    imgName,
     imgURL,
   });
 
   res.status(201).json({ project });
 };
+
 exports.deleteProject = async (req, res) => {
   const { id } = req.params;
   await Project.findByIdAndDelete(id);
